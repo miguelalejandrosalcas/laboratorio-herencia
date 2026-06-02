@@ -43,25 +43,36 @@ console.log(empleado2.calcularSalarioAnual());
 
 
 class Lider extends Empleado {
-    constructor(nombre, salario, equipo) {
+    constructor(nombre, cargo, salario) {
         super(nombre, cargo = "Líder del equipo", salario);
-        this.equipo = [];
+        this.equipo = [empleado1, empleado2, empleado3, empleado4];
     }
     presentarEquipo() {
         if (this.equipo.length > 0) {
+            console.log(`El equipo del líder ${this.nombre} está conformado por:`);
+            
             for (let i = 0; i < this.equipo.length; i++) {
-                this.equipo.push()
+                console.log("- " + this.equipo[i].nombre);
             }
+            return;
+            
         }
         else {
             return `El equipo del líder está vacío`
         }
     }
     agregarMiembro(nombre) {
-
+        
     }
     info() {
-
+        if (this.equipo.length > 0) {
+            for (let i = 0; i < this.equipo.length; i++) {
+                console.log(this.equipo[i].info());
+            }
+        }
     }
 }
 
+let lider = new Lider("Miguel", "", 2010010);
+console.log(lider);
+console.log(lider.presentarEquipo());
